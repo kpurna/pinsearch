@@ -5,9 +5,9 @@ import dj_database_url
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
- ADMINS = (
-      ('', ''),
- )
+ADMINS = (
+    ('', ''),
+)
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
