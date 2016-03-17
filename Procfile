@@ -1,1 +1,1 @@
-web: gunicorn pinsearch.wsgi --log-file -
+web: gunicorn pinsearch.wsgi
