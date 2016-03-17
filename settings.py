@@ -13,12 +13,12 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',     
-        'NAME': 'pinsearch',                     
-        'USER': 'root', #database user name                    
-        'PASSWORD': '123', #database password                
-        'HOST': 'localhost',   
-        'PORT': '3306',                      
+        'ENGINE': 'django.db.backends.postgresql',     
+        'NAME': 'd3bfdll3g1m6cp',                     
+        'USER': 'lnkldobxqpgejx', #database user name                    
+        'PASSWORD': '5RLq9QfUD1dV4dmCSGXekaoxrn', #database password                
+        'HOST': 'ec2-54-225-151-64.compute-1.amazonaws.com',   
+        'PORT': '5432',                      
     }
 }
 
