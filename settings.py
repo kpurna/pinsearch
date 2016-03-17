@@ -1,29 +1,29 @@
 import os.path
+import dj_database_url
 # Django settings for pinsearch project.
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
-# ADMINS = (
-#      ('', ''),
-# )
+ ADMINS = (
+      ('', ''),
+ )
 
-# PROJECT_DIR = os.path.split(os.path.dirname(__file__))[0]
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+# PROJECT_DIR = os.path.split(os.path.dirname(__file__))[0]
 MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',     
-        'NAME': 'd3bfdll3g1m6cp',                     
-        'USER': 'lnkldobxqpgejx', #database user name                    
-        'PASSWORD': '5RLq9QfUD1dV4dmCSGXekaoxrn', #database password                
-        'HOST': 'ec2-54-225-151-64.compute-1.amazonaws.com',   
-        'PORT': '5432',                      
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),                      
     }
 }
-import dj_database_url
-DATABASES[‘default’] = dj_database_url.config()
+
+# Update database configuration with $DATABASE_URL.
+db_from_env = dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(db_from_env)
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
 # See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
@@ -65,7 +65,7 @@ MEDIA_URL = ''
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/var/www/example.com/static/"
-STATIC_ROOT = 'staticfiles'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 # URL prefix for static files.
 # Example: "http://example.com/static/", "http://static.example.com/"
@@ -76,7 +76,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, "static"),
+    os.path.join(PROJECT_ROOT, 'static'),
 )
 
 # List of finder classes that know how to find static files in
